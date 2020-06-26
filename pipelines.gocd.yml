@@ -1,0 +1,17 @@
+pipelines:
+  unit_test:
+    materials:
+      source-code:
+        git: git@github.com:KavitaJadhav/go_cd_sample.git
+        branch: master
+    stages:
+      setup_and_run:
+        clean_workspace: true
+        jobs:
+          run:
+            tasks:
+              - exec:
+                  command: bash
+                  arguments:
+                    - -c
+                    - echo 'Hello' > git_revision.txt
